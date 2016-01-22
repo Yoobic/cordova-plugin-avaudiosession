@@ -24,23 +24,34 @@ AVAudioSessionAdapter.CategoryOptions = {
     DEFAULT_TO_SPEAKER: 8
 };
 
+AVAudioSessionAdapter.RouteChangeReason = {
+   Unknown: 0,
+   NewDeviceAvailable: 1,
+   OldDeviceUnavailable: 2,
+   CategoryChange: 3,
+   Override: 4,
+   WakeFromSleep: 6,
+   NoSuitableRouteForCategory: 7,
+   RouteConfigurationChange: 8
+};
+
 AVAudioSessionAdapter.prototype.getCategory = function(resultCallback) {
     exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategory", []);
-        
+
     function successCallback(param) {
         resultCallback(param);
     }
-        
+
     function errorCallback(param) { }
 };
 
 AVAudioSessionAdapter.prototype.getCategoryOptions = function(resultCallback) {
     exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategoryOptions", []);
-        
+
     function successCallback(param) {
         resultCallback(param);
     }
-        
+
     function errorCallback(param) { }
 };
 
@@ -50,6 +61,10 @@ AVAudioSessionAdapter.prototype.setCategory = function(category, successCallback
 
 AVAudioSessionAdapter.prototype.setCategoryWithOptions = function(category, categoryOptions, successCallback, errorCallback) {
     exec(successCallback, errorCallback, "AVAudioSessionAdapter", "setCategory", [category, categoryOptions]);
+};
+
+AVAudioSessionAdapter.prototype.registerRouteChangedCallback = function(successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "registerRouteChangedCallback", []);
 };
 
 module.exports = AVAudioSessionAdapter;
