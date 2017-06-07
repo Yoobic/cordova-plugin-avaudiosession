@@ -6,34 +6,6 @@ var AVAudioSession = (function() {
 
 	}
 
-	this.Categories = {
-		AMBIENT: 'AVAudioSessionCategoryAmbient',
-		SOLO_AMBIENT: 'AVAudioSessionCategorySoloAmbient',
-		PLAYBACK: 'AVAudioSessionCategoryPlayback',
-		RECORD: 'AVAudioSessionCategoryRecord',
-		PLAY_AND_RECORD: 'AVAudioSessionCategoryPlayAndRecord',
-		AUDIO_PROCESSING: 'AVAudioSessionCategoryAudioProcessing',
-		MULTI_ROUTE: 'AVAudioSessionCategoryMultiRoute'
-	};
-
-	this.CategoryOptions = {
-		MIX_WITH_OTHERS: 1,
-		DUCK_OTHERS: 2,
-		ALLOW_BLUETOOTH: 4,
-		DEFAULT_TO_SPEAKER: 8
-	};
-
-	this.RouteChangeReason = {
-		Unknown: 0,
-		NewDeviceAvailable: 1,
-		OldDeviceUnavailable: 2,
-		CategoryChange: 3,
-		Override: 4,
-		WakeFromSleep: 6,
-		NoSuitableRouteForCategory: 7,
-		RouteConfigurationChange: 8
-	};
-
 	AVAudioSession.prototype.getCategory = function (resultCallback) {
 		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategory", []);
 
@@ -70,5 +42,34 @@ var AVAudioSession = (function() {
 	return AVAudioSession;
 }());
 
-module.exports = new AVAudioSession();
+var exp = new AVAudioSession();
+exp.Categories = {
+	AMBIENT: 'AVAudioSessionCategoryAmbient',
+	SOLO_AMBIENT: 'AVAudioSessionCategorySoloAmbient',
+	PLAYBACK: 'AVAudioSessionCategoryPlayback',
+	RECORD: 'AVAudioSessionCategoryRecord',
+	PLAY_AND_RECORD: 'AVAudioSessionCategoryPlayAndRecord',
+	AUDIO_PROCESSING: 'AVAudioSessionCategoryAudioProcessing',
+	MULTI_ROUTE: 'AVAudioSessionCategoryMultiRoute'
+};
+
+exp.CategoryOptions = {
+	MIX_WITH_OTHERS: 1,
+	DUCK_OTHERS: 2,
+	ALLOW_BLUETOOTH: 4,
+	DEFAULT_TO_SPEAKER: 8
+};
+
+exp.RouteChangeReason = {
+	Unknown: 0,
+	NewDeviceAvailable: 1,
+	OldDeviceUnavailable: 2,
+	CategoryChange: 3,
+	Override: 4,
+	WakeFromSleep: 6,
+	NoSuitableRouteForCategory: 7,
+	RouteConfigurationChange: 8
+};
+
+module.exports = exp;
 
