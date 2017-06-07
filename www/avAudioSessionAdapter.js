@@ -70,5 +70,5 @@ var AVAudioSession = (function() {
 	return AVAudioSession;
 }());
 
-module.exports = new AVAudioSessionAdapter();
+module.exports = new AVAudioSession();
 
