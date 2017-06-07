@@ -6,7 +6,7 @@ var AVAudioSession = (function() {
 
 	}
 
-	AVAudioSession.Categories = {
+	this.Categories = {
 		AMBIENT: 'AVAudioSessionCategoryAmbient',
 		SOLO_AMBIENT: 'AVAudioSessionCategorySoloAmbient',
 		PLAYBACK: 'AVAudioSessionCategoryPlayback',
@@ -16,14 +16,14 @@ var AVAudioSession = (function() {
 		MULTI_ROUTE: 'AVAudioSessionCategoryMultiRoute'
 	};
 
-	AVAudioSession.CategoryOptions = {
+	this.CategoryOptions = {
 		MIX_WITH_OTHERS: 1,
 		DUCK_OTHERS: 2,
 		ALLOW_BLUETOOTH: 4,
 		DEFAULT_TO_SPEAKER: 8
 	};
 
-	AVAudioSession.RouteChangeReason = {
+	this.RouteChangeReason = {
 		Unknown: 0,
 		NewDeviceAvailable: 1,
 		OldDeviceUnavailable: 2,
