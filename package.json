@@ -1,4 +1,29 @@
 {
   "version": "1.0.0",
-  "name": "cordova-plugin-avaudiosession"
+  "name": "cordova-plugin-avaudiosession",
+  "description": "cordova-plugin-avaudiosession ========================",
+  "cordova": {
+    "id": "cordova-plugin-avaudiosession",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBosZ/cordova-plugin-avaudiosession.git"
+  },
+  "keywords": [
+    "cordova",
+    "ios",
+    "audio",
+    "session",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Nathan Kerr",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/TheBosZ/cordova-plugin-avaudiosession/issues"
+  },
+  "homepage": "https://github.com/TheBosZ/cordova-plugin-avaudiosession#readme"
 }
