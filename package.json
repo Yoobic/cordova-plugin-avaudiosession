@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "cordova-plugin-avaudiosession",
-  "description": "cordova-plugin-avaudiosession ========================",
+  "description": "Get and Set AVAudioSession information in iOS",
   "cordova": {
     "id": "cordova-plugin-avaudiosession",
     "platforms": [
