@@ -1,71 +1,74 @@
 
 var exec = require('cordova/exec');
 
-var AVAudioSessionAdapter = function() {
-    if (!(this instanceof AVAudioSessionAdapter)) {
-        return new AVAudioSessionAdapter();
-    }
-};
+var AVAudioSession = (function() {
+	function AVAudioSession() {
 
-AVAudioSessionAdapter.Categories = {
-    AMBIENT: 'AVAudioSessionCategoryAmbient',
-    SOLO_AMBIENT: 'AVAudioSessionCategorySoloAmbient',
-    PLAYBACK: 'AVAudioSessionCategoryPlayback',
-    RECORD: 'AVAudioSessionCategoryRecord',
-    PLAY_AND_RECORD: 'AVAudioSessionCategoryPlayAndRecord',
-    AUDIO_PROCESSING: 'AVAudioSessionCategoryAudioProcessing',
-    MULTI_ROUTE: 'AVAudioSessionCategoryMultiRoute'
-};
+	}
 
-AVAudioSessionAdapter.CategoryOptions = {
-    MIX_WITH_OTHERS: 1,
-    DUCK_OTHERS: 2,
-    ALLOW_BLUETOOTH: 4,
-    DEFAULT_TO_SPEAKER: 8
-};
+	AVAudioSession.Categories = {
+		AMBIENT: 'AVAudioSessionCategoryAmbient',
+		SOLO_AMBIENT: 'AVAudioSessionCategorySoloAmbient',
+		PLAYBACK: 'AVAudioSessionCategoryPlayback',
+		RECORD: 'AVAudioSessionCategoryRecord',
+		PLAY_AND_RECORD: 'AVAudioSessionCategoryPlayAndRecord',
+		AUDIO_PROCESSING: 'AVAudioSessionCategoryAudioProcessing',
+		MULTI_ROUTE: 'AVAudioSessionCategoryMultiRoute'
+	};
 
-AVAudioSessionAdapter.RouteChangeReason = {
-   Unknown: 0,
-   NewDeviceAvailable: 1,
-   OldDeviceUnavailable: 2,
-   CategoryChange: 3,
-   Override: 4,
-   WakeFromSleep: 6,
-   NoSuitableRouteForCategory: 7,
-   RouteConfigurationChange: 8
-};
+	AVAudioSession.CategoryOptions = {
+		MIX_WITH_OTHERS: 1,
+		DUCK_OTHERS: 2,
+		ALLOW_BLUETOOTH: 4,
+		DEFAULT_TO_SPEAKER: 8
+	};
 
-AVAudioSessionAdapter.prototype.getCategory = function(resultCallback) {
-    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategory", []);
+	AVAudioSession.RouteChangeReason = {
+		Unknown: 0,
+		NewDeviceAvailable: 1,
+		OldDeviceUnavailable: 2,
+		CategoryChange: 3,
+		Override: 4,
+		WakeFromSleep: 6,
+		NoSuitableRouteForCategory: 7,
+		RouteConfigurationChange: 8
+	};
 
-    function successCallback(param) {
-        resultCallback(param);
-    }
+	AVAudioSession.prototype.getCategory = function (resultCallback) {
+		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategory", []);
 
-    function errorCallback(param) { }
-};
+		function successCallback(param) {
+			resultCallback(param);
+		}
 
-AVAudioSessionAdapter.prototype.getCategoryOptions = function(resultCallback) {
-    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategoryOptions", []);
+		function errorCallback(param) {
+		}
+	};
 
-    function successCallback(param) {
-        resultCallback(param);
-    }
+	AVAudioSession.prototype.getCategoryOptions = function (resultCallback) {
+		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "getCategoryOptions", []);
 
-    function errorCallback(param) { }
-};
+		function successCallback(param) {
+			resultCallback(param);
+		}
 
-AVAudioSessionAdapter.prototype.setCategory = function(category, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "setCategory", [category]);
-};
+		function errorCallback(param) {
+		}
+	};
 
-AVAudioSessionAdapter.prototype.setCategoryWithOptions = function(category, categoryOptions, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "setCategory", [category, categoryOptions]);
-};
+	AVAudioSession.prototype.setCategory = function (category, successCallback, errorCallback) {
+		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "setCategory", [category]);
+	};
 
-AVAudioSessionAdapter.prototype.registerRouteChangedCallback = function(successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "AVAudioSessionAdapter", "registerRouteChangedCallback", []);
-};
+	AVAudioSession.prototype.setCategoryWithOptions = function (category, categoryOptions, successCallback, errorCallback) {
+		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "setCategory", [category, categoryOptions]);
+	};
 
-module.exports = AVAudioSessionAdapter;
+	AVAudioSession.prototype.registerRouteChangedCallback = function (successCallback, errorCallback) {
+		exec(successCallback, errorCallback, "AVAudioSessionAdapter", "registerRouteChangedCallback", []);
+	};
+	return AVAudioSession;
+}());
+
+module.exports = new AVAudioSessionAdapter();
 

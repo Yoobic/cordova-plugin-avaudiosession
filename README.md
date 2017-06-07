@@ -1,7 +1,7 @@
-av-audio-session-adapter
+cordova-plugin-avaudiosession
 ========================
 
-The AVAudioSessionAdapter is an iOS specific cordova plugin, that exposes functionality of the AVAudioSession singleton instance. It is usefull to applications that require to implement advanced use-cases of media handling (play/record etc. For more information on AVAudioSession, view the [Apple Documentation](https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVAudioSession_ClassReference/Reference/Reference.html))
+This is an iOS specific cordova plugin that exposes functionality of the AVAudioSession singleton instance. It is useful to applications that need to implement advanced use-cases of media handling (play/record etc.) For more information on AVAudioSession, view the [Apple Documentation](https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVAudioSession_ClassReference/Reference/Reference.html))
 
 The following functions are supported:
 
@@ -28,11 +28,9 @@ The following functions are supported:
 A typical usage is as follows:
 
 ```javascript
-var AVAudioSessionAdapter = gr.eworx.AVAudioSessionAdapter;
-var audioSession = new AVAudioSessionAdapter();
-audioSession.setCategoryWithOptions(
-    AVAudioSessionAdapter.Categories.PLAY_AND_RECORD,
-	AVAudioSessionAdapter.CategoryOptions.MIX_WITH_OTHERS,
+AVAudioSession.setCategoryWithOptions(
+    AVAudioSession.Categories.PLAY_AND_RECORD,
+	AVAudioSession.CategoryOptions.MIX_WITH_OTHERS,
 	function() {
 		// Do something on success.
 	}, 
@@ -40,7 +38,7 @@ audioSession.setCategoryWithOptions(
 		// Handle the error.
 	}
 );
-audioSession.getCategory(
+AVAudioSession.getCategory(
 	function(category) {
     	// Do something with category value.
     }
