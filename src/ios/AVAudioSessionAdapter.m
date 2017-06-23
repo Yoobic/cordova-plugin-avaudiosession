@@ -52,7 +52,7 @@
     NSLog(@"AVAudioSessionAdapter:pluginInitialize");
 
 	@try {
-		NSString* value = [self.commandDelegate.settings objectForKey:@"AVAudioSession"];
+		NSString* value = [self.commandDelegate.settings objectForKey:[@"AVAudioSession" lowercaseString]];
 
 		[[AVAudioSession sharedInstance] setCategory:value error:nil];
 	}@catch (NSException* ex) {

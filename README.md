@@ -24,6 +24,10 @@ The following functions are supported:
  
    Sets the category and categoryOptions of the AVAudioSession to the given values.
 
+### Setting session on startup
+You can include a `<preference>` tag in your config.xml to set the session on startup:
+
+`<preference name="AVAudioSession" value="AVAudioSessionCategoryAmbient" />`
 
 A typical usage is as follows:
 
