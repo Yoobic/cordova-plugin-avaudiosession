@@ -51,6 +51,14 @@
 - (void) pluginInitialize {
     NSLog(@"AVAudioSessionAdapter:pluginInitialize");
 
+	@try {
+		NSString* value = [self.commandDelegate.settings objectForKey:@"AVAudioSession"];
+
+		[[AVAudioSession sharedInstance] setCategory:value error:nil];
+	}@catch (NSException* ex) {
+		NSLog(@"%@", [ex reason]);
+	}
+
     _routeChangedCallbackId = nil;
 
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];

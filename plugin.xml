@@ -18,6 +18,7 @@
         <config-file target="config.xml" parent="/*">
             <feature name="AVAudioSessionAdapter">
                 <param name="ios-package" value="AVAudioSessionAdapter"/>
+                <param name="onload" value="true" />
             </feature>
         </config-file>
 
